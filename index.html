@@ -17,19 +17,23 @@
             <h1>Salary Calculator</h1>
         </header>
         <!-- Employee Input Info -->
-        <div class="employee-form">
+        <div class="container-form">
             <h2>Add Employee</h2>
-            <input type="text" placeholder="First Name"/>
-            <input type="text" placeholder="Last Name"/>
-            <input type="number" placeholder="ID"/>
-            <input type="text" placeholder="Title"/>
-            <input type="number" placeholder="Annual Salary"/>
-            <button type="submit" class="btn-submit">Submit</button>
+            <input type="text" class="blk-border" placeholder="First Name"/>
+            <input type="text" class="blk-border" placeholder="Last Name"/>
+            <input type="number" class="blk-border" placeholder="ID"/>
+            <input type="text" class="blk-border" placeholder="Title"/>
+            <input type="number" class="blk-border" placeholder="Annual Salary"/>
+            <button type="submit" class="btn blk-border " id="add-employee-btn">Submit</button>
         </div>
 
         <!-- Employee Display Info -->
-        <div class="employee-content">
+        <div class="container-employee">
+            <h2>Employees</h2>
 
+        </div>
+        <div class="container-total">
+            <h2 class="currency-fixed" id="total-monthly">Total Monthly:</h2>
         </div>
         
     </main>
