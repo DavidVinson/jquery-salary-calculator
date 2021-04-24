@@ -8,3 +8,16 @@ body {
     text-align: center;
     padding: .25rem; 
 }
+
+.container-form input, button {
+    border: 2px black solid;
+}
+
+.btn {
+    border-radius: 5px;
+    width: 6rem;
+}
+
+.btn.delete {
+    width: 4rem;
+}
