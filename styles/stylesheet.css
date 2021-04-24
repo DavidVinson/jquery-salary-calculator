@@ -14,7 +14,7 @@ body {
 }
 
 .blk-border {
-    border: 2px black solid;
+    border: 2px solid black;
 }
 
 .field {
@@ -28,5 +28,17 @@ body {
 
 .btn.delete {
     width: 4rem;
+}
+
+table {
+    padding: 5px;
+    border: 2px solid black;
+    width: 250px;
+}
+
+table td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid blue;
 }
 

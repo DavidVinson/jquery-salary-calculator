@@ -5,6 +5,11 @@ function onReady() {
     console.log('DOM is ready');
     $('#add-employee-btnID').click(validateEmployeeInfo);
 
+    //below function removes div the button is contained in when clicked
+    $('#delete-employee-btnID').click(function(event) {
+        $('.content-del').remove();
+    });
+
     // $('#add-employee-btnID').click(addEmployee);
     
 } //end onReady
@@ -54,10 +59,48 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
         annualSalary
     }
     employees.push(employee);
-    console.log(employee);
+    console.log(employees);
+
+    //clear input fields
     clearFields();
+
+    //display employees in table
+    displayEmployee();
+
     return;
 } //end addEmployee
 
+function displayEmployee(event) {
+    console.log('in display table area')
+    $('employee-display').empty();
+    for (let i=0; i < employees.length; i++) {
+        console.log(`${employees[i].fName}`)
+        $('.employee-display').append(`
+            <li>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Employee ID</td>
+                            <td>Title</td>
+                            <td>Salary</td>
+                         </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${employees[i].fName}</td>
+                            <td>${employees[i].lName}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            `);
+    }
+    
+} // end displayEmployee
+
 // DOM listen function
 $(onReady);
+
