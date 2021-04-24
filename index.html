@@ -13,32 +13,32 @@
 </head>
 <body>
     <!-- main content -->
-    <main class="content-main">
+    <main class="content-main blk-border">
         <header>
             <h1>Salary Calculator</h1>
         </header>
         <!-- Employee Input Info -->
         <div class="container-form">
-            <h2>Add Employee</h2>
-            <input type="text" placeholder="First Name"/>
-            <input type="text" placeholder="Last Name"/>
-            <input type="number" placeholder="ID"/>
-            <input type="text" placeholder="Title"/>
-            <input type="number" placeholder="Annual Salary"/>
-            <button type="submit" class="btn" id="add-employee-btn">Submit</button>
+            <h2 class="form-header" id="h2-form-headerID">Add Employee</h2>
+            <input type="text" class="field blk-border" id="fNameID" placeholder="First Name"/>
+            <input type="text" class="field blk-border" id="lNameID" placeholder="Last Name"/>
+            <input type="number" class="field blk-border" id="employeeID" placeholder="ID"/>
+            <input type="text" class="field blk-border" id="titleID" placeholder="Title"/>
+            <input type="number" class="field blk-border" id="annualSalaryID" placeholder="Annual Salary"/>
+            <button type="submit" class="btn blk-border" id="add-employee-btnID">Submit</button>
 
             <!-- delete btn will be part of table -->
-            <button class="btn delete" id="delete-btn">Delete</button>
+            <button class="btn delete blk-border" id="delete-employee-btnID">Delete</button>
 
         </div>
 
         <!-- Employee Display Info -->
         <div class="container-employee">
-            <h2>Employees</h2>
+            <h2 class="employee-header" id="h2-employee-headerID">Employees</h2>
 
         </div>
         <div class="container-total">
-            <h2 class="currency-fixed" id="total-monthly">Total Monthly:</h2>
+            <h2 class="currency-fixed" id="total-monthlyID">Total Monthly:</h2>
         </div>
         
     </main>

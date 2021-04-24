@@ -9,8 +9,16 @@ body {
     padding: .25rem; 
 }
 
-.container-form input, button {
+.container-form {
+    padding: .5rem;
+}
+
+.blk-border {
     border: 2px black solid;
+}
+
+.field {
+    width: 8rem;
 }
 
 .btn {
@@ -21,3 +29,4 @@ body {
 .btn.delete {
     width: 4rem;
 }
+
