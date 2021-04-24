@@ -18,22 +18,22 @@ function validateEmployeeInfo(event) {
 
     if (!fName || !lName || !employeeID || !title || !annualSalary) {
         console.log('need more info');
-        $('.container-form input').css('border', '2px red solid');
-        $('#add-employee-btnID').css({'background-color': 'red', 'color': 'white'});
+        // $('.container-form input').css('border', '2px red solid');
+        // $('#add-employee-btnID').css({'background-color': 'red', 'color': 'white'});
 
         clearFields();
     }
-    else {
-        $('#add-employee-btnID').css('-webkit-appearance', 'button');
-        addEmployee(fName, lName, employeeID, title, annualSalary);
-        $('.container-form input').css();
 
+    else {
+        employeeID = Number(employeeID);
+        annualSalary = Number(annualSalary);
+
+        addEmployee(fName, lName, employeeID, title, annualSalary);
     }
 
     clearFields();
     return;
-
-}
+} // end validateEmployeeInfo
 
 function clearFields() {
     //clear the DOM fields
@@ -54,7 +54,7 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
         annualSalary
     }
     employees.push(employee);
-    console.log(`Employee Name: ${employee.fName}`);
+    console.log(employee);
     clearFields();
     return;
 } //end addEmployee
