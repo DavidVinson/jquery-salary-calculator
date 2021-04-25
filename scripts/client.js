@@ -5,10 +5,10 @@ function onReady() {
     console.log('DOM is ready');
     $('#add-employee-btnID').click(validateEmployeeInfo);
 
-    //below function removes div the button is contained in when clicked
-    // $('#delete-employee-btnID').click(function(event) {
-    //     $('.content-del').remove();
-    // });
+    $('.row-data').click('#delete-employee-btnID', function(event) {
+        console.log('button active!');
+        $(event.target).closest('tr').remove();
+    });
 
     // $('#add-employee-btnID').click(addEmployee);
     
@@ -71,23 +71,21 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
 } //end addEmployee
 
 
-function displayEmployee(event) {
-    let delButton = $('#delete-employee-btnID').click(function(event) {
-        $('.content-del').remove();
-    });
-
+function displayEmployee() {
     console.log('in display table area')
     $('.row-data').empty();
     let row = $('.row-data');
     for (let i=0; i < employees.length; i++) {
         row.append(`
+        <tr>
         <td>${employees[i].fName}</td>
         <td>${employees[i].lName}</td>
         <td>${employees[i].employeeID}</td>
         <td>${employees[i].title}</td>
         <td>${employees[i].annualSalary}</td>
-        <td>'deleteBtn'</td>`, document.createElement('tr'));
-
+        <td>
+        <button class="btn delete blk-border" id="delete-employee-btnID">Delete</button>
+        </td></tr>`);
     }
         
 } // end displayEmployee
