@@ -1,16 +1,7 @@
 
 let employees = [];
+let totalSalary = 0;
 
-function onReady() {
-    console.log('DOM is ready');
-    $('#add-employee-btnID').click(validateEmployeeInfo);
-
-    $('.row-data').click('#delete-employee-btnID', function(event) {
-        console.log('button active!');
-        $(event.target).closest('tr').remove(); //review this concept!!
-    });
-
-} //end onReady
 
 function validateEmployeeInfo(event) {
     let fName = $('#fNameID').val().toLowerCase();
@@ -39,6 +30,7 @@ function validateEmployeeInfo(event) {
 
 } // end validateEmployeeInfo
 
+
 function clearFields() {
     //clear the DOM fields
     $('#fNameID').val('');
@@ -49,6 +41,7 @@ function clearFields() {
     return;
 
   } // end clearFields
+
 
 function addEmployee(fName, lName, employeeID, title, annualSalary) {
     const employee = {
@@ -68,7 +61,7 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
     displayEmployee();
 
     return;
-    
+
 } //end addEmployee
 
 
@@ -90,6 +83,28 @@ function displayEmployee() {
     }
         
 } // end displayEmployee
+
+
+function calcSalary() {
+    console.log('in calc salary');
+    return;
+}
+
+
+function onReady() {
+    console.log('DOM is ready');
+    $('#add-employee-btnID').click(validateEmployeeInfo);
+
+    $('.row-data').click('#delete-employee-btnID', function(event) {
+        console.log('button active!');
+        $(event.target).closest('tr').remove(); //review this concept!!
+    });
+
+    $('#total').empty();
+    $('#total').text(totalSalary);
+
+} //end onReady
+
 
 // DOM listen function
 $(onReady);
