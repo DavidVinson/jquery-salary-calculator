@@ -13,6 +13,10 @@ body {
     padding: .5rem;
 }
 
+.employee-display {
+    list-style-type: none;
+}
+
 .blk-border {
     border: 2px solid black;
 }
@@ -33,7 +37,6 @@ body {
 table {
     padding: 5px;
     border: 2px solid black;
-    width: 250px;
 }
 
 table td {
