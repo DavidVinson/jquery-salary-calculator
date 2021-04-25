@@ -6,9 +6,9 @@ function onReady() {
     $('#add-employee-btnID').click(validateEmployeeInfo);
 
     //below function removes div the button is contained in when clicked
-    $('#delete-employee-btnID').click(function(event) {
-        $('.content-del').remove();
-    });
+    // $('#delete-employee-btnID').click(function(event) {
+    //     $('.content-del').remove();
+    // });
 
     // $('#add-employee-btnID').click(addEmployee);
     
@@ -70,35 +70,26 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
     return;
 } //end addEmployee
 
-function displayEmployee(event) {
-    console.log('in display table area')
-    $('employee-display').empty();
-    for (let i=0; i < employees.length; i++) {
-        console.log(`${employees[i].fName}`)
-        $('.employee-display').append(`
-            <li>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>First Name</td>
-                            <td>Last Name</td>
-                            <td>Employee ID</td>
-                            <td>Title</td>
-                            <td>Salary</td>
-                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>${employees[i].fName}</td>
-                            <td>${employees[i].lName}</td>
 
-                        </tr>
-                    </tbody>
-                </table>
-            </li>
-            `);
+function displayEmployee(event) {
+    let delButton = $('#delete-employee-btnID').click(function(event) {
+        $('.content-del').remove();
+    });
+
+    console.log('in display table area')
+    $('.row-data').empty();
+    let row = $('.row-data');
+    for (let i=0; i < employees.length; i++) {
+        row.append(`
+        <td>${employees[i].fName}</td>
+        <td>${employees[i].lName}</td>
+        <td>${employees[i].employeeID}</td>
+        <td>${employees[i].title}</td>
+        <td>${employees[i].annualSalary}</td>
+        <td>'deleteBtn'</td>`, document.createElement('tr'));
+
     }
-    
+        
 } // end displayEmployee
 
 // DOM listen function
