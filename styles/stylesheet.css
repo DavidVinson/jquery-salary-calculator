@@ -13,6 +13,10 @@ body {
     padding: .5rem;
 }
 
+.container-employee {
+    margin-bottom: 10px;
+}
+
 .employee-display {
     list-style-type: none;
 }
@@ -42,6 +46,10 @@ table {
 table td {
     padding: 5px;
     text-align: center;
-    border: 1px solid blue;
+    border: 2px solid blue;
+}
+
+.container-total {
+    float: right;
 }
 
