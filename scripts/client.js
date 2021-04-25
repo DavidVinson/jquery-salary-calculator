@@ -18,14 +18,15 @@ function validateEmployeeInfo(event) {
         clearFields();
     }
 
-    else {
-        employeeID = Number(employeeID);
-        annualSalary = Number(annualSalary);
+    employeeID = Number(employeeID);
+    annualSalary = Number(annualSalary);
 
-        addEmployee(fName, lName, employeeID, title, annualSalary);
-    }
+    //add employees to global employees array
+    addEmployee(fName, lName, employeeID, title, annualSalary);
 
+    //clear fields to ready for next entry
     clearFields();
+
     return;
 
 } // end validateEmployeeInfo
@@ -51,14 +52,21 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
         title,
         annualSalary
     }
+
+    //add new employee object to empoloyees array
     employees.push(employee);
-    console.log(employees);
+    // console.log(employees);
+
+    //increment totalSalary by employee['annualSalary']
+    totalSalary += employee.annualSalary;
 
     //clear input fields
     clearFields();
 
-    //display employees in table
+    //display employees in table when added
     displayEmployee();
+
+    salaryHandler();
 
     return;
 
@@ -76,7 +84,7 @@ function displayEmployee() {
         <td>${employees[i].lName}</td>
         <td>${employees[i].employeeID}</td>
         <td>${employees[i].title}</td>
-        <td>${employees[i].annualSalary}</td>
+        <td>$${employees[i].annualSalary}</td>
         <td>
         <button class="btn delete blk-border" id="delete-employee-btnID">Delete</button>
         </td></tr>`);
@@ -85,9 +93,12 @@ function displayEmployee() {
 } // end displayEmployee
 
 
-function calcSalary() {
-    console.log('in calc salary');
-    return;
+function salaryHandler() {
+    // console.log('in calc salary');
+    $('#total').empty();
+    console.log(totalSalary);
+    $('#total').text(`${totalSalary}`);
+
 }
 
 
@@ -99,9 +110,6 @@ function onReady() {
         console.log('button active!');
         $(event.target).closest('tr').remove(); //review this concept!!
     });
-
-    $('#total').empty();
-    $('#total').text(totalSalary);
 
 } //end onReady
 
