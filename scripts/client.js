@@ -10,6 +10,7 @@ function validateEmployeeInfo(event) {
     let title = $('#titleID').val();
     let annualSalary = $('#annualSalaryID').val();
 
+    //check for missing info
     if (!fName || !lName || !employeeID || !title || !annualSalary) {
         console.log('need more info');
         // $('.container-form input').css('border', '2px red solid');
@@ -18,6 +19,7 @@ function validateEmployeeInfo(event) {
         clearFields();
     }
 
+    //set these two to numbers
     employeeID = Number(employeeID);
     annualSalary = Number(annualSalary);
 
@@ -45,6 +47,7 @@ function clearFields() {
 
 
 function addEmployee(fName, lName, employeeID, title, annualSalary) {
+    //build employee as an object literal
     const employee = {
         fName,
         lName,
@@ -55,9 +58,9 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
 
     //add new employee object to empoloyees array
     employees.push(employee);
-    // console.log(employees);
+    console.log(employees);
 
-    //increment totalSalary by employee['annualSalary']
+    //increment totalSalary by employee annualSalary
     totalSalary += employee.annualSalary;
 
     //clear input fields
@@ -66,6 +69,7 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
     //display employees in table when added
     displayEmployee();
 
+    //do the salary calculations
     salaryHandler();
 
     return;
@@ -74,7 +78,8 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
 
 
 function displayEmployee() {
-    console.log('in display table area')
+    // displays employee info on the DOM
+    // console.log('in display table area')
     $('.row-data').empty();
     let row = $('.row-data');
     for (let i=0; i < employees.length; i++) {
@@ -86,20 +91,45 @@ function displayEmployee() {
         <td>${employees[i].title}</td>
         <td>$${employees[i].annualSalary}</td>
         <td>
-        <button class="btn delete blk-border" id="delete-employee-btnID">Delete</button>
+        <button class="btn delete blk-border" id="delete-employee-btnID-${employees[i].employeeID}">Delete</button>
         </td></tr>`);
+
+        console.log(`'<button class="btn delete blk-border" id="delete-employee-btnID-${employees[i].employeeID}">Delete</button>'`)
     }
-        
 } // end displayEmployee
 
 
 function salaryHandler() {
     // console.log('in calc salary');
     $('#total').empty();
-    console.log(totalSalary);
+    // console.log(totalSalary);
     $('#total').text(`${totalSalary}`);
 
 }
+
+function removeEmployee(buttonID) {
+    //used buttionID to get index of employee in array and remove that index
+    console.log('in remove function');
+    // console.log(buttonID);
+    console.log(buttonID.target); //gives me the button id that trigged the event
+    // console.log(typeof(buttonID.target)); //gives me an object to work with
+    // console.log(buttonID.target.id);
+    let rmIndex = buttonID.target.id;
+    let match = rmIndex.match(/(\d+)/);
+    console.log(`EmployeeID: ${match[0]}`);
+    let mIndex = parseInt(match[0]);
+    console.log(typeof(mIndex));
+    for (let i=0; i < employees.length; i++) {
+        if (mIndex === employees[i].employeeID) {
+            console.log('Match!');
+            employees.pop(employees[mIndex]);
+        }
+        else {
+            console.log('Not found!');
+        }
+    console.log(employees);
+    } return;
+} // end removeEmployee
 
 
 function onReady() {
@@ -108,7 +138,9 @@ function onReady() {
 
     $('.row-data').click('#delete-employee-btnID', function(event) {
         console.log('button active!');
-        $(event.target).closest('tr').remove(); //review this concept!!
+        $(event.target).closest('tr').remove(); //removes row from DOM
+        // TODO: rm from employee array and decrement salary
+        removeEmployee(event);
     });
 
 } //end onReady
