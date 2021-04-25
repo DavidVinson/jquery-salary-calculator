@@ -7,11 +7,9 @@ function onReady() {
 
     $('.row-data').click('#delete-employee-btnID', function(event) {
         console.log('button active!');
-        $(event.target).closest('tr').remove();
+        $(event.target).closest('tr').remove(); //review this concept!!
     });
 
-    // $('#add-employee-btnID').click(addEmployee);
-    
 } //end onReady
 
 function validateEmployeeInfo(event) {
@@ -38,6 +36,7 @@ function validateEmployeeInfo(event) {
 
     clearFields();
     return;
+
 } // end validateEmployeeInfo
 
 function clearFields() {
@@ -48,6 +47,7 @@ function clearFields() {
     $('#titleID').val('');
     $('#annualSalaryID').val('');
     return;
+
   } // end clearFields
 
 function addEmployee(fName, lName, employeeID, title, annualSalary) {
@@ -68,6 +68,7 @@ function addEmployee(fName, lName, employeeID, title, annualSalary) {
     displayEmployee();
 
     return;
+    
 } //end addEmployee
 
 
