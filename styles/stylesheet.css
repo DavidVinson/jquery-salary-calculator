@@ -3,7 +3,7 @@ body {
 }
 
 .content-main header {
-    background-color: gray;
+    background-color: lightskyblue;
     color: white;
     text-align: center;
     padding: .25rem; 
@@ -47,7 +47,7 @@ table {
 table td {
     padding: 5px;
     text-align: center;
-    border: 2px solid blue;
+    border: 2px solid lightskyblue;
 }
 
 .container-total {
