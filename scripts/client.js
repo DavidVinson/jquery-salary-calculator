@@ -94,40 +94,52 @@ function displayEmployee() {
         <button class="btn delete blk-border" id="delete-employee-btnID-${employees[i].employeeID}">Delete</button>
         </td></tr>`);
 
-        console.log(`'<button class="btn delete blk-border" id="delete-employee-btnID-${employees[i].employeeID}">Delete</button>'`)
+        // console.log(`'<button class="btn delete blk-border" id="delete-employee-btnID-${employees[i].employeeID}">Delete</button>'`)
     }
 } // end displayEmployee
 
 
 function salaryHandler() {
     // console.log('in calc salary');
+    if (!totalSalary) {
+        return;
+    }
+    
+    let monthly = (totalSalary / 12).toFixed(2);
     $('#total').empty();
     // console.log(totalSalary);
-    $('#total').text(`${totalSalary}`);
+    $('#total').text(`${monthly}`);
 
-}
+    if (totalSalary > 20000) {
+        $('.currency').addClass("red");
+    }
+
+    return;
+
+} // end salaryHandler
+
 
 function removeEmployee(buttonID) {
     //used buttionID to get index of employee in array and remove that index
-    console.log('in remove function');
+
+    // console.log('in remove function');
     // console.log(buttonID);
-    console.log(buttonID.target); //gives me the button id that trigged the event
+    // console.log(buttonID.target); //gives me the button id that trigged the event
     // console.log(typeof(buttonID.target)); //gives me an object to work with
     // console.log(buttonID.target.id);
     let rmIndex = buttonID.target.id;
     let match = rmIndex.match(/(\d+)/);
-    console.log(`EmployeeID: ${match[0]}`);
+    // console.log(`EmployeeID: ${match[0]}`);
     let mIndex = parseInt(match[0]);
-    console.log(typeof(mIndex));
+    // console.log(typeof(mIndex));
+    // console.log(mIndex);
+    let setDeletions = [];
     for (let i=0; i < employees.length; i++) {
         if (mIndex === employees[i].employeeID) {
-            console.log('Match!');
-            employees.pop(employees[mIndex]);
+            console.log(`Removed employeeID: ${match[0]}`);
+            employees.splice(i, 1);
         }
-        else {
-            console.log('Not found!');
-        }
-    console.log(employees);
+
     } return;
 } // end removeEmployee
 
@@ -142,6 +154,8 @@ function onReady() {
         // TODO: rm from employee array and decrement salary
         removeEmployee(event);
     });
+
+    console.log(employees);
 
 } //end onReady
 
