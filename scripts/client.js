@@ -110,9 +110,8 @@ function salaryHandler() {
     // console.log(totalSalary);
     $('#total').text(`${monthly}`);
 
-    if (totalSalary > 20000) {
-        $('.currency').addClass("red");
-    }
+    // if condition is true, toggle to red class
+    $('.currency').toggleClass("red", monthly > 20000);
 
     return;
 
@@ -137,8 +136,11 @@ function removeEmployee(buttonID) {
     for (let i=0; i < employees.length; i++) {
         if (mIndex === employees[i].employeeID) {
             console.log(`Removed employeeID: ${match[0]}`);
+            totalSalary -= employees[i].annualSalary;
             employees.splice(i, 1);
         }
+
+        salaryHandler();
 
     } return;
 } // end removeEmployee
