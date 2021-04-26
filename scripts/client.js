@@ -13,11 +13,19 @@ function validateEmployeeInfo(event) {
     //check for missing info
     if (!fName || !lName || !employeeID || !title || !annualSalary) {
         console.log('need more info');
-        // $('.container-form input').css('border', '2px red solid');
-        // $('#add-employee-btnID').css({'background-color': 'red', 'color': 'white'});
+        $('.container-form input').addClass("red-border");
+        $('#add-employee-btnID').addClass("red");
+
+    } 
+    
+    else {
+        $('.container-form input').removeClass("red-border");
+        $('#add-employee-btnID').removeClass("red");
 
         clearFields();
     }
+        // $('.container-form input').css('border', '2px red solid');
+        // $('#add-employee-btnID').css({'background-color': 'red', 'color': 'white'});
 
     //set these two to numbers
     employeeID = Number(employeeID);

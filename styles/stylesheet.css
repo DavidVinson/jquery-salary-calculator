@@ -51,9 +51,17 @@ table td {
     border: 2px solid lightskyblue;
 }
 
+.row-head {
+    background-color: lightgray;
+}
+
 .container-total {
     margin: 20px;
     float: right;
+}
+
+.red-border {
+    border: 2px solid red;
 }
 
 .red {
