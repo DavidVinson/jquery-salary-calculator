@@ -111,7 +111,7 @@ function salaryHandler() {
     $('#total').text(`${monthly}`);
 
     // if condition is true, toggle to red class
-    $('.currency').toggleClass("red", monthly > 20000);
+    $('.container-total').toggleClass("red blk-border", monthly > 20000);
 
     return;
 

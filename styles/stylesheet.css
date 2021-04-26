@@ -10,11 +10,12 @@ body {
 }
 
 .container-form {
-    padding: .5rem;
+    margin: 10px;
 }
 
 .container-employee {
-    margin-bottom: 10px;
+    margin: 20px;
+    margin-left: 10px;
 }
 
 .employee-display {
@@ -51,10 +52,12 @@ table td {
 }
 
 .container-total {
+    margin: 20px;
     float: right;
 }
 
 .red {
     background-color: red;
+    color: white;
 }
 
